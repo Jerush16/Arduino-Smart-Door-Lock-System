@@ -1,0 +1,180 @@
+# Arduino-Based Smart Door Lock System
+
+## 1. Abstract
+
+The Arduino-Based Smart Door Lock System is an embedded security application designed to provide secure access control using password authentication. The system utilizes an Arduino Uno, a 4×4 keypad, a 16×2 LCD display, and a servo motor to control door locking and unlocking operations. Users can enter a predefined password through the keypad to gain access. The system also supports password modification and includes a security lockout feature that activates after three consecutive incorrect password attempts. This project demonstrates the practical application of embedded systems, user authentication, and actuator control in modern security systems.
+
+---
+
+## 2. Introduction
+
+Security is an important requirement in homes, offices, laboratories, and industrial environments. Traditional mechanical locks can be vulnerable to unauthorized access and key duplication. Electronic door lock systems provide a more secure and flexible solution.
+
+This project implements a password-protected door lock system using Arduino. A keypad is used for password entry, while an LCD display provides user feedback. A servo motor acts as the locking mechanism, allowing the door to unlock when the correct password is entered and automatically relock after a specified period.
+
+---
+
+## 3. Objectives
+
+* Design a password-based electronic door locking system.
+* Implement secure access control using keypad authentication.
+* Provide real-time user feedback through an LCD display.
+* Enable password modification by authorized users.
+* Improve security using an automatic lockout mechanism after multiple failed attempts.
+* Demonstrate embedded system programming and hardware interfacing.
+
+---
+
+## 4. Components Used
+
+| Component          | Quantity    |
+| ------------------ | ----------- |
+| Arduino Uno        | 1           |
+| 4×4 Matrix Keypad  | 1           |
+| 16×2 LCD Display   | 1           |
+| Servo Motor (SG90) | 1           |
+| Breadboard         | 1           |
+| Jumper Wires       | As Required |
+| USB Cable          | 1           |
+| Power Supply       | 1           |
+
+---
+
+## 5. System Architecture
+
+The system consists of four major modules:
+
+1. Input Module (4×4 Keypad)
+
+   * Used to enter passwords and system commands.
+
+2. Processing Module (Arduino Uno)
+
+   * Verifies passwords and controls system operations.
+
+3. Output Module (16×2 LCD Display)
+
+   * Displays system status and user instructions.
+
+4. Locking Module (Servo Motor)
+
+   * Controls door locking and unlocking actions.
+
+### Working Flow
+
+User Input → Keypad → Arduino Uno → Password Verification → Servo Motor Control → Door Lock/Unlock
+
+LCD Display ← Status Messages ← Arduino Uno
+
+---
+
+## 6. Circuit Description
+
+### Keypad Interface
+
+The 4×4 keypad is connected to the Arduino digital pins and is used for password entry.
+
+### LCD Interface
+
+The 16×2 LCD display is connected to the Arduino and displays messages such as:
+
+* Enter Password
+* Access Granted
+* Wrong Password
+* Door Locked
+* Password Changed
+
+### Servo Motor Interface
+
+The servo motor is connected to a PWM-capable Arduino pin and rotates to:
+
+* 0° for Locked Position
+* 90° for Unlocked Position
+
+### Power Supply
+
+The Arduino is powered through USB or an external power source.
+
+---
+
+## 7. Working Principle
+
+1. System initialization occurs when power is applied.
+2. The LCD prompts the user to enter a password.
+3. Password digits are entered through the keypad.
+4. Pressing '#' initiates password verification.
+5. If the password is correct:
+
+   * Access is granted.
+   * Servo motor unlocks the door.
+   * Door remains unlocked for a few seconds.
+   * Servo motor relocks the door.
+6. If the password is incorrect:
+
+   * An error message is displayed.
+   * Failed attempt counter increases.
+7. After three consecutive failed attempts:
+
+   * System enters lockout mode.
+   * User cannot enter a password for a predefined duration.
+8. Authorized users can change the password using the password-change feature.
+
+---
+
+## 8. Features
+
+* Password-Based Authentication
+* Servo-Controlled Door Locking
+* LCD Status Display
+* Password Change Functionality
+* Automatic Relocking
+* Three-Attempt Security Lockout
+* User-Friendly Interface
+* Low-Cost Implementation
+
+---
+
+## 9. Advantages
+
+* Enhanced Security
+* Easy to Operate
+* Cost Effective
+* Expandable Design
+* Suitable for Smart Home Applications
+* Reduced Dependence on Physical Keys
+
+---
+
+## 10. Applications
+
+* Home Security Systems
+* Office Access Control
+* Laboratory Security
+* Hostel Room Security
+* Smart Home Automation
+* Restricted Access Areas
+
+---
+
+## 11. Future Enhancements
+
+* EEPROM-Based Password Storage
+* RFID Authentication
+* Fingerprint Authentication
+* Mobile App Control
+* IoT-Based Remote Monitoring
+* OTP Verification System
+* Face Recognition Integration
+* Cloud-Based Access Logs
+
+---
+
+## 12. Results
+
+The developed system successfully performs secure password-based authentication using a keypad and Arduino Uno. The servo motor accurately controls door locking and unlocking actions, while the LCD display provides clear user feedback. The password change functionality and lockout mechanism improve system security and usability.
+
+---
+
+## 13. Conclusion
+
+The Arduino-Based Smart Door Lock System demonstrates an effective and affordable electronic security solution. By integrating a keypad, LCD display, and servo motor with Arduino, the system provides secure access control through password authentication. Additional features such as password modification and automatic lockout enhance overall security. The project serves as a practical example of embedded systems and can be further expanded into advanced smart security applications.
