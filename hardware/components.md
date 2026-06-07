@@ -1,8 +1,8 @@
 Arduino Uno
 
-4x4 Matrix Keypad
+4*4 Matrix Keypad
 
-16x2 LCD Display
+16*2 LCD Display
 
 Servo Motor (SG90)
 
