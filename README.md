@@ -1,99 +1,48 @@
 # Arduino-Based Smart Door Lock System
 
-## Project Overview
+A hardware access-control system built on Arduino Uno with keypad authentication,
+servo-actuated locking, EEPROM-persisted password storage, and automatic security lockout.
 
-This project is a password-based smart door lock system developed using Arduino, a keypad, LCD display, and a servo motor. The system provides secure access control by allowing authorized users to unlock the door using a predefined password.
-
-Additional security features such as automatic lockout after multiple incorrect password attempts and password modification functionality have been implemented to improve system reliability.
-
----
-
-## Objectives
-
-- Provide secure access control.
-- Prevent unauthorized access.
-- Enable password modification.
-- Enhance security through automatic lockout.
+> **Status:** Completed and tested on physical hardware
+> **Demo:** [Watch 30-second demo](#) 
 
 ---
 
-## Hardware Components
+## The Problem It Solves
 
-- Arduino Uno
-- 4x4 Matrix Keypad
-- 16x2 LCD Display
-- Servo Motor
-- Breadboard
-- Jumper Wires
-- Power Supply
+Standard mechanical locks offer no protection against brute-force attempts and no
+runtime reconfigurability. This system implements a layered security model on an
+ATmega328P microcontroller with only 2KB of RAM:
 
----
-
-## Software Tools
-
-- Arduino IDE
-- Embedded C/C++
-- Servo Library
-- LiquidCrystal Library
+- Digit-masked keypad input
+- Configurable attempt limit with timed lockout
+- Runtime password change with current-password verification
+- EEPROM persistence so credentials survive power cycles
 
 ---
 
-## Features
+## Circuit Diagram
 
-- Password Protected Access
-- LCD User Interface
-- Servo-Based Door Lock Mechanism
-- Password Change Function
-- Three-Attempt Security Lockout
-- Real-Time User Feedback
+
 
 ---
 
-## System Workflow
+## Technical Highlights
 
-1. User enters password through keypad.
-2. Arduino verifies entered password.
-3. If correct, servo motor unlocks the door.
-4. If incorrect, error message is displayed.
-5. System locks automatically after three failed attempts.
-6. Authorized users can update the password after verification.
-
----
-
-## Applications
-
-- Smart Homes
-- Office Security Systems
-- Hostel Room Access Control
-- Locker Security Systems
-- Laboratory Access Control
+- **EEPROM persistence** — Password saved to non-volatile memory with magic-byte
+  first-boot detection. Only written on actual password change, preserving EEPROM
+  write cycle life (~100,000 writes)
+- **State machine architecture** — Five states (IDLE, UNLOCKED, LOCKED_OUT,
+  CHANGE_OLD, CHANGE_NEW) with non-blocking transitions via `millis()` — the main
+  loop never freezes
+- **No heap fragmentation** — `char` arrays with `strcmp()` / `strncpy()` used
+  throughout instead of Arduino's `String` class, which causes unpredictable crashes
+  on 2KB RAM systems through heap fragmentation
+- **Input bounds enforcement** — Input buffer hard-capped at `MAX_PASSWORD_LEN` to
+  prevent overflow
+- **Live lockout countdown** — LCD displays remaining lockout seconds in real time
+  using non-blocking `millis()` arithmetic
 
 ---
 
-## Advantages
-
-- Low Cost
-- Easy Implementation
-- Enhanced Security
-- User Friendly
-- Customizable Password
-
----
-
-## Future Enhancements
-
-- RFID Authentication
-- Fingerprint Authentication
-- Mobile App Control
-- IoT Connectivity
-- OTP-Based Verification
-
----
-
-## Author
-
-Jerush Thanusha T
-
-B.E. Electronics and Communication Engineering
-
-Government College of Engineering, Tirunelveli
+## System State Machine
