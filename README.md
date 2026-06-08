@@ -23,7 +23,7 @@ on an ATmega328P with only 2KB RAM:
 
 ## Circuit Diagram
 
-![Circuit Diagram](image/circuit_diagram.png)
+![Circuit Diagram](image/Circuit_diagram.png)
 
 ---
 
