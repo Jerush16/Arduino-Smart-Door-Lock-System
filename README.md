@@ -107,3 +107,5 @@ the non-blocking countdown display during lockout.
 **Jerush Thanusha T**
 B.E. Electronics and Communication Engineering
 Government College of Engineering, Tirunelveli
+
+[LinkedIn](https://www.linkedin.com/in/jerush-thanusha-871188291) · [GitHub](https://github.com/Jerush16)
