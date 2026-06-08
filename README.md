@@ -48,6 +48,7 @@ on an ATmega328P with only 2KB RAM:
 
 ## System State Machine
 
+![State_machine](image/State_machine.png)
 
 ---
 
