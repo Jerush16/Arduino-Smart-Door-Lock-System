@@ -5,7 +5,7 @@ servo-actuated locking, EEPROM-persisted password storage, and automatic securit
 
 > **Status:** Completed and tested on physical hardware
 
-> **Demo:** [Watch Demo](#) ← paste your YouTube or Google Drive link here
+> **Demo:** [Watch Demo](#)
 
 ---
 
