@@ -12,7 +12,7 @@ servo-actuated locking, EEPROM-persisted password storage, and automatic securit
 ## System Architecture
 
 The system is built around four hardware modules controlled by a single ATmega328P microcontroller:
-![Circuit Diagram](image/Circuit_diagram.png)
+![System_architecture](image/System_architecture.png)
 
 ## The Problem It Solves
 
