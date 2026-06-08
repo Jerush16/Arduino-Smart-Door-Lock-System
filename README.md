@@ -4,9 +4,15 @@ A hardware access-control system built on Arduino Uno with keypad authentication
 servo-actuated locking, EEPROM-persisted password storage, and automatic security lockout.
 
 > **Status:** Completed and tested on physical hardware
+
 > **Demo:** [Watch Demo](#) ← paste your YouTube or Google Drive link here
 
 ---
+
+## System Architecture
+
+The system is built around four hardware modules controlled by a single ATmega328P microcontroller:
+![Circuit Diagram](image/Circuit_diagram.png)
 
 ## The Problem It Solves
 
