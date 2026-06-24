@@ -5,7 +5,7 @@ servo-actuated locking, EEPROM-persisted password storage, and automatic securit
 
 > **Status:** Completed and tested on physical hardware
 
-> **Demo:** [Watch Demo](#)
+> **Demo:** [Watch Demo](https://youtube.com/shorts/IRBiLV32RXc)
 
 ---
 
